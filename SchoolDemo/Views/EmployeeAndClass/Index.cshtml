@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SchoolDemo.Models.EmployeeAndClass>
+
+<p>
+    @Html.ActionLink("Добавить", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.c.ClassName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employee.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employee.Position)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.c.ClassName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employee.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employee.Position)
+            </td>
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
